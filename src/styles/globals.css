@@ -47,6 +47,44 @@
     text-wrap: balance;
   }
   .glass {
-    @apply bg-black/40 backdrop-blur-md border border-white/10;
+    @apply bg-zinc-900/60 backdrop-blur-md border-b border-white/5;
   }
+  .font-display {
+    font-family: "Outfit", sans-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-800 rounded-full hover:bg-zinc-700 transition-colors;
+}
+
+/* Shiny Text Animation */
+@keyframes shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.shiny-text {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.7) 0%,
+    #fff 50%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 3s linear infinite;
 }

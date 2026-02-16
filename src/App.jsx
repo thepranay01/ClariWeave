@@ -1,26 +1,26 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import Lenis from 'lenis';
-import { AnimatePresence, motion } from 'framer-motion';
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Lenis from "lenis";
+import { AnimatePresence, motion } from "framer-motion";
 
-import LoadingScreen from './components/common/LoadingScreen';
-import Navbar from './components/common/Navbar';
-import ErrorBoundary from './components/common/ErrorBoundary';
-import Home from './pages/Home';
-import Shop from './pages/Shop';
-import Cart from './pages/Cart';
-import ProductDetails from './pages/ProductDetails';
-import Checkout from './pages/Checkout';
-import About from './pages/About';
-import ProtectedRoute from './components/admin/ProtectedRoute';
-import AdminLogin from './pages/admin/AdminLogin';
-import AdminDashboard from './pages/admin/AdminDashboard';
-import AdminProducts from './pages/admin/AdminProducts';
-import AdminOrders from './pages/admin/AdminOrders';
+import LoadingScreen from "./components/common/LoadingScreen";
+import Navbar from "./components/common/Navbar";
+import ErrorBoundary from "./components/common/ErrorBoundary";
+import Home from "./pages/Home";
+import Shop from "./pages/Shop";
+import Cart from "./pages/Cart";
+import ProductDetails from "./pages/ProductDetails";
+import Checkout from "./pages/Checkout";
+import About from "./pages/About";
+import ProtectedRoute from "./components/admin/ProtectedRoute";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminProducts from "./pages/admin/AdminProducts";
+import AdminOrders from "./pages/admin/AdminOrders";
 
 function App() {
   const location = useLocation();
-  const isAdmin = location.pathname.startsWith('/admin');
+  const isAdmin = location.pathname.startsWith("/admin");
   const [loading, setLoading] = useState(!isAdmin);
 
   useEffect(() => {
@@ -35,12 +35,12 @@ function App() {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
-    
+
     requestAnimationFrame(raf);
-    
+
     return () => {
       lenis.destroy();
-    }
+    };
   }, [isAdmin]);
 
   return (
@@ -68,7 +68,7 @@ function App() {
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/product/:id" element={<ProductDetails />} />
                 <Route path="/about" element={<About />} />
-                
+
                 {/* Admin Routes */}
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route element={<ProtectedRoute />}>
@@ -86,4 +86,3 @@ function App() {
 }
 
 export default App;
-
