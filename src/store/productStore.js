@@ -29,7 +29,15 @@ const useProductStore = create((set, get) => ({
         shortDescription:
           "Ideal for heavy-duty wax removal and paint correction.",
         color: "Red",
-        images: ["/images/cloth_red.png"],
+        colorHex: "#DC2626",
+        sizes: ["40x40cm", "60x90cm"],
+        images: [
+          "/images/cloth_red.png",
+          "/images/feature_absorb.png",
+          "/images/feature_scratchless.png",
+        ],
+        benefitDescription:
+          "Buffs wax to a high-gloss shine without scratches.",
         variants: [{ id: "v1", name: "Standard", price: 19.99, stock: 50 }],
       },
       {
@@ -39,7 +47,14 @@ const useProductStore = create((set, get) => ({
         shortDescription:
           "Perfect for dirty jobs like wheels, engine bays, and interiors.",
         color: "Black",
-        images: ["/images/cloth_black.png"],
+        colorHex: "#171717",
+        sizes: ["40x40cm", "60x90cm"],
+        images: [
+          "/images/cloth_black.png",
+          "/images/feature_absorb.png",
+          "/images/feature_scratchless.png",
+        ],
+        benefitDescription: "Hides dirt and grime while cleaning tough areas.",
         variants: [{ id: "v2", name: "Standard", price: 19.99, stock: 45 }],
       },
       {
@@ -49,7 +64,14 @@ const useProductStore = create((set, get) => ({
         shortDescription:
           "Ultra-plush for waterless washing and quick detailing.",
         color: "Purple",
-        images: ["/images/cloth_purple.png"],
+        colorHex: "#7C3AED",
+        sizes: ["40x40cm", "60x90cm"],
+        images: [
+          "/images/cloth_purple.png",
+          "/images/feature_absorb.png",
+          "/images/feature_scratchless.png",
+        ],
+        benefitDescription: "Absorbs dirt safely for waterless washing.",
         variants: [{ id: "v3", name: "Standard", price: 19.99, stock: 30 }],
       },
       {
@@ -59,7 +81,15 @@ const useProductStore = create((set, get) => ({
         shortDescription:
           "Delicate touch for interior screens and glossy trim.",
         color: "Pink",
-        images: ["/images/cloth_pink.png"],
+        colorHex: "#EC4899",
+        sizes: ["40x40cm", "60x90cm"],
+        images: [
+          "/images/cloth_pink.png",
+          "/images/feature_absorb.png",
+          "/images/feature_scratchless.png",
+        ],
+        benefitDescription:
+          "Gentle on navigation screens and piano black trim.",
         variants: [{ id: "v4", name: "Standard", price: 19.99, stock: 60 }],
       },
       {
@@ -69,8 +99,31 @@ const useProductStore = create((set, get) => ({
         shortDescription:
           "Dedicated glass cleaning cloth for streak-free windows.",
         color: "Green",
-        images: ["/images/cloth_green.png"],
+        colorHex: "#22C55E",
+        sizes: ["40x40cm", "60x90cm"],
+        images: [
+          "/images/cloth_green.png",
+          "/images/feature_absorb.png",
+          "/images/feature_scratchless.png",
+        ],
+        benefitDescription: "Leaves glass perfectly clear and streak-free.",
         variants: [{ id: "v5", name: "Standard", price: 19.99, stock: 25 }],
+      },
+      {
+        id: "cloth-brown",
+        name: "Premium Microfiber - Mocha Brown",
+        basePrice: 19.99,
+        shortDescription: "Leather care specialist for seats and dashboards.",
+        color: "Brown",
+        colorHex: "#78350F",
+        sizes: ["40x40cm", "60x90cm"],
+        images: [
+          "/images/cloth_brown.png",
+          "/images/feature_absorb.png",
+          "/images/feature_scratchless.png",
+        ],
+        benefitDescription: "Perfect for applying leather conditioner evenly.",
+        variants: [{ id: "v6", name: "Standard", price: 19.99, stock: 40 }],
       },
     ];
 

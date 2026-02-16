@@ -4,7 +4,9 @@ import Lenis from "lenis";
 import { AnimatePresence, motion } from "framer-motion";
 
 import LoadingScreen from "./components/common/LoadingScreen";
+import GlobalGlow from "./components/common/GlobalGlow";
 import Navbar from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
 import ErrorBoundary from "./components/common/ErrorBoundary";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
@@ -12,6 +14,9 @@ import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetails";
 import Checkout from "./pages/Checkout";
 import About from "./pages/About";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -59,6 +64,7 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
+            <GlobalGlow />
             <Navbar />
             <main>
               <Routes location={location} key={location.pathname}>
@@ -68,6 +74,9 @@ function App() {
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/product/:id" element={<ProductDetails />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/profile" element={<Profile />} />
 
                 {/* Admin Routes */}
                 <Route path="/admin/login" element={<AdminLogin />} />
@@ -78,6 +87,7 @@ function App() {
                 </Route>
               </Routes>
             </main>
+            <Footer />
           </motion.div>
         )}
       </ErrorBoundary>
