@@ -192,7 +192,7 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors group"
+                className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors group text-center flex flex-col items-center"
               >
                 <benefit.icon
                   className="w-10 h-10 text-white mb-6 group-hover:scale-110 transition-transform duration-300"
@@ -214,7 +214,7 @@ const Home = () => {
         className="py-24 bg-background border-t border-white/5"
       >
         <div className="container px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+          <div className="flex flex-col items-center text-center mb-12 space-y-4">
             <div>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">
                 Latest Drops
@@ -225,7 +225,7 @@ const Home = () => {
             </div>
             <a
               href="/shop"
-              className="hidden md:block text-white border-b border-white pb-1 hover:text-white/80 transition-colors"
+              className="text-white border-b border-white pb-1 hover:text-white/80 transition-colors"
             >
               View all products
             </a>
