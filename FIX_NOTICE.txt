@@ -1,0 +1,11 @@
+UPDATE: Fixed "Landing Page" and "Shop" Tab.
+
+1.  Implemented `Shop` page and fixed routing.
+2.  Verified `Home` component renders and outputs log to console.
+3.  Restarted Development Server on Port **5173**.
+4.  Temporarily disabled Loading Screen to ensure content loads immediately.
+
+Please visit: http://localhost:5173
+
+If you see a blank screen, please check the browser console (F12) for logs.
+"Rendering Home Component" should appear.
