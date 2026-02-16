@@ -8,13 +8,13 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBPLPFZLqjCjSWNWn--5kGy9JuMHwpwiY0",
-  authDomain: "clariweave-db.firebaseapp.com",
-  projectId: "clariweave-db",
-  storageBucket: "clariweave-db.firebasestorage.app",
-  messagingSenderId: "690605216528",
-  appId: "1:690605216528:web:154810c8e1039de7188b95",
-  measurementId: "G-C32LQ6LD6L"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
