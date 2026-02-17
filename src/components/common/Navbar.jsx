@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { ShoppingBag, Menu, X, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -20,6 +21,14 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [mobileMenuOpen]);
 
   return (
     <nav
@@ -56,6 +65,12 @@ const Navbar = () => {
             className="text-sm font-medium text-white/80 hover:text-white transition-colors"
           >
             About
+          </Link>
+          <Link
+            to="/contact"
+            className="text-sm font-medium text-white/80 hover:text-white transition-colors"
+          >
+            Contact
           </Link>
           <Link
             to="/cart"
@@ -102,54 +117,80 @@ const Navbar = () => {
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Mobile Nav Drawer */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: "100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center space-y-8 md:hidden"
-            >
-              <Link
-                to="/"
-                className="text-2xl font-display font-medium text-white"
-                onClick={() => setMobileMenuOpen(false)}
+        {/* Mobile Nav Drawer Portal */}
+        {createPortal(
+          <AnimatePresence>
+            {mobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, x: "100%" }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: "100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                className="fixed inset-0 bg-black z-[100] flex flex-col items-center justify-center space-y-8 md:hidden"
               >
-                Home
-              </Link>
-              <Link
-                to="/shop"
-                className="text-2xl font-display font-medium text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Shop
-              </Link>
-              <Link
-                to="/about"
-                className="text-2xl font-display font-medium text-white"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                to="/cart"
-                className="text-2xl font-display font-medium text-white flex items-center gap-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Cart <ShoppingBag size={24} />
-              </Link>
-              <Link
-                to={isAuthenticated ? "/profile" : "/login"}
-                className="text-2xl font-display font-medium text-white flex items-center gap-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {isAuthenticated ? "My Profile" : "Login"}
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                <button
+                  className="absolute top-6 right-6 text-white p-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <X size={32} />
+                </button>
+
+                <Link
+                  to="/"
+                  className="text-2xl font-display font-medium text-white"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link
+                  to="/shop"
+                  className="text-2xl font-display font-medium text-white"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Shop
+                </Link>
+                <Link
+                  to="/about"
+                  className="text-2xl font-display font-medium text-white"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+                <Link
+                  to="/contact"
+                  className="text-2xl font-display font-medium text-white"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact Us
+                </Link>
+
+                <Link
+                  to="/cart"
+                  className="text-2xl font-display font-medium text-white flex items-center gap-3"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <ShoppingBag size={24} />
+                  Cart
+                  {totalItems > 0 && (
+                    <span className="ml-2 bg-white text-black text-sm font-bold px-2 py-0.5 rounded-full">
+                      {totalItems}
+                    </span>
+                  )}
+                </Link>
+
+                <Link
+                  to={isAuthenticated ? "/profile" : "/login"}
+                  className="text-2xl font-display font-medium text-white flex items-center gap-3"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <User size={24} />
+                  {isAuthenticated ? "My Profile" : "Login"}
+                </Link>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body,
+        )}
       </div>
     </nav>
   );

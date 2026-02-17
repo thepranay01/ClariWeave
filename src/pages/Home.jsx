@@ -37,9 +37,14 @@ const Home = () => {
                 transition={{ duration: 1, ease: "easeOut" }}
                 className="relative"
               >
-                <h1 className="text-7xl md:text-[10rem] leading-[0.8] font-display font-bold tracking-tighter text-white mix-blend-overlay opacity-50 select-none absolute -top-20 -left-10 hidden md:block">
+                <motion.h1
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 0.5, scale: 1 }}
+                  transition={{ duration: 1.5, ease: "easeOut" }}
+                  className="text-[3rem] md:text-[10rem] leading-[0.8] font-display font-bold tracking-tighter text-white mix-blend-overlay select-none absolute -top-8 -left-1 md:-top-20 md:-left-10 z-0 pointer-events-none opacity-30 md:opacity-50"
+                >
                   CLARIWEAVE
-                </h1>
+                </motion.h1>
                 <h2 className="text-5xl md:text-8xl font-display font-bold text-white leading-[0.9] tracking-tight relative z-10">
                   PRECISION <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">
